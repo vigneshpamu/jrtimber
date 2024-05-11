@@ -1,63 +1,55 @@
-"use client";
-import React from "react";
+'use client'
+import React from 'react'
 import {
   motion,
   useScroll,
   useTransform,
   useSpring,
   MotionValue,
-} from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
+} from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
 
-export const HeroParallax = ({
-  products,
-}: {
-  products: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  }[];
-}) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
-  const ref = React.useRef(null);
+export const HeroParallax = ({ products }) => {
+  const firstRow = products.slice(0, 5)
+  const secondRow = products.slice(5, 10)
+  const thirdRow = products.slice(10, 15)
+  const ref = React.useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
-  });
+    offset: ['start start', 'end start'],
+  })
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  const springConfig = { stiffness: 300, damping: 30, bounce: 100 }
 
   const translateX = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, 1000]),
     springConfig
-  );
+  )
   const translateXReverse = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, -1000]),
     springConfig
-  );
+  )
   const rotateX = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [15, 0]),
     springConfig
-  );
+  )
   const opacity = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
     springConfig
-  );
+  )
   const rotateZ = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [20, 0]),
     springConfig
-  );
+  )
   const translateY = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
     springConfig
-  );
+  )
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[290vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -98,8 +90,8 @@ export const HeroParallax = ({
         </motion.div>
       </motion.div>
     </div>
-  );
-};
+  )
+}
 
 export const Header = () => {
   return (
@@ -108,23 +100,14 @@ export const Header = () => {
         Wide Range <br /> premium qualiy wood products
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 text-mondo-500">
-      We continue to be a trusted partner for those seeking excellence in the world of lumber.
+        We continue to be a trusted partner for those seeking excellence in the
+        world of lumber.
       </p>
     </div>
-  );
-};
+  )
+}
 
-export const ProductCard = ({
-  product,
-  translate,
-}: {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
-  translate: MotionValue<number>;
-}) => {
+export const ProductCard = ({ product, translate }) => {
   return (
     <motion.div
       style={{
@@ -153,5 +136,5 @@ export const ProductCard = ({
         {product.title}
       </h2>
     </motion.div>
-  );
-};
+  )
+}
