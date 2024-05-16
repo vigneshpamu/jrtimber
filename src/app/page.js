@@ -169,8 +169,8 @@ export default function Home() {
   return (
     <div className=" text-mondo-700 bg-stone-50 overflow-hidden">
       {/* <Navbar className="top-2" /> */}
-      {/* <HeroParallaxDemo /> */}
-      <HeroSection />
+      <HeroParallaxDemo />
+      {/* <HeroSection /> */}
       <AboutSection />
       <motion.div
         ref={ref}
