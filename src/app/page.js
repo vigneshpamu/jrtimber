@@ -289,7 +289,14 @@ export default function Home() {
           <button>View All Products</button>
         </div>
       </div>
-      <div className="main bg-mondo-200">
+      <div
+        className="main bg-mondo-200"
+        style={{
+          backgroundImage: 'url(/images/home/video/video.png)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+        }}
+      >
         <div
           className={active ? 'btn active' : 'btn'}
           onClick={(val) => setActive(true)}
