@@ -190,7 +190,7 @@ export default function Home() {
         </motion.div>
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-xl text-center sm:text-2xl md:text-4xl font-bold uppercase">
-            "Land & Timber are what we know best!"
+            Land & Timber are what we know best
           </p>
         </div>
       </motion.div>
@@ -237,14 +237,14 @@ export default function Home() {
 
                 <p>
                   At Timbercraft, we excel in natural veneers, offering a
-                  superior selection that captures nature's timeless beauty. As
+                  superior selection that captures natures timeless beauty. As
                   an industry leader, we source the finest wood species from
                   sustainable forests worldwide. Our commitment to quality
                   ensures each veneer is meticulously processed to enhance its
-                  grain, texture, and color. Whether it's the warmth of walnut
-                  or the elegance of oak, our veneers elevate furniture design,
-                  adding luxury to any interior. With Timbercraft's natural
-                  veneers, craftsmanship meets nature's beauty, creating unique
+                  grain, texture, and color. Whether its the warmth of walnut or
+                  the elegance of oak, our veneers elevate furniture design,
+                  adding luxury to any interior. With Timbercrafts natural
+                  veneers, craftsmanship meets natures beauty, creating unique
                   and enduring furniture pieces.
                 </p>
               </div>
@@ -348,7 +348,6 @@ export default function Home() {
           <button>View All Services</button>
         </div>
       </div>
-
       <motion.div
         ref={ref2}
         className="relative bg-mondo-100 w-full h-[200px] md:h-[400px] overflow-hidden"
@@ -367,11 +366,10 @@ export default function Home() {
         </motion.div>
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-xl text-center sm:text-2xl md:text-4xl font-bold uppercase">
-            "Land & Timber are what we know best!"
+            Land & Timber are what we know best
           </p>
         </div>
       </motion.div>
-      {/* <div className="bg-mondo-200 h-[500px]"></div> */}
       <section className="bg-mondo-200">
         <div className="mx-auto max-w-screen-xl px-4 py-10">
           {/* <h2 className="text-center text-2xl font-bold tracking-tight text-gray-90 0 sm:text-2xl text-mondo-700 mb-10">

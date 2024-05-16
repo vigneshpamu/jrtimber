@@ -10,7 +10,7 @@ const AboutSection = () => {
         </p>
         <div className="h-[3px] w-[200px] bg-mondo-700"></div>
       </div>
-      <div className=" max-w-[1300px] md:px-5 mx-auto  flex flex-col md:flex-row items-center justify-center gap-10 md:gap-2">
+      <div className="max-w-[1300px] md:px-5 mx-auto  flex flex-col md:flex-row items-center justify-center gap-10 md:gap-2">
         <Image
           src={'/images/home/about/bg1.jpg'}
           height="600"
@@ -29,7 +29,7 @@ const AboutSection = () => {
               boasting an extensive inventory and unparalleled expertise in the
               Middle East region. As the largest stockists in the area, we offer
               a comprehensive range of high-quality timber and veneer products
-              to meet diverse needs. Whether you're a contractor, designer, or
+              to meet diverse needs. Whether you are a contractor, designer, or
               homeowner, Timbercraft is your trusted partner for superior
               materials and exceptional service.
             </p>
