@@ -8,7 +8,7 @@ import { DirectionAwareHover } from '@/components/ui/onImageHover'
 import HeroSection from '@/components/pages/home/HeroSection'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import StarSVG from '@/components/common/StarSVG'
+import StarSVG from '@/components/common/svgIcons/StarSVG'
 
 const fadeInAnimationsVariants = {
   initial: {

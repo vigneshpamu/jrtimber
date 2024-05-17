@@ -1,7 +1,12 @@
+import AllAbout from '@/components/pages/about/AllAbout'
 import React from 'react'
 
-const page = () => {
-  return <div>page</div>
+const AboutPage = () => {
+  return (
+    <>
+      <AllAbout />
+    </>
+  )
 }
 
-export default page
+export default AboutPage
