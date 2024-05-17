@@ -163,8 +163,8 @@ export default function Home() {
     offset: ['start end', 'end start'],
   })
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
-  const scale1 = useTransform(scrollYProgress1, [0, 1], [1, 1.2])
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.45])
+  const scale1 = useTransform(scrollYProgress1, [0, 1], [1, 1.45])
 
   return (
     <div className=" text-mondo-700 bg-stone-50 overflow-hidden">
