@@ -335,7 +335,7 @@ export default function Home() {
                     width={500}
                     height={500}
                     objectFit=""
-                    className="h-full w-full object-cover"
+                    className="min-h-[286px] w-full object-cover"
                   />
                   <div className="w-full flex flex-col gap-5 items-center justify-center">
                     <div className="flex flex-col gap-2 items-center justify-center">
