@@ -7,6 +7,7 @@ import HeroSection from './HeroSection'
 import OurSpecialitySection from './OurSpecialitySection'
 import WhyUsSection from './WhyUsSection'
 import CSRSection from './CSRSection'
+import Footer from '@/components/common/Footer'
 
 const AllAbout = () => {
   return (
@@ -17,6 +18,7 @@ const AllAbout = () => {
       <OurSpecialitySection />
       <WhyUsSection />
       <CSRSection />
+      <Footer />
     </div>
   )
 }

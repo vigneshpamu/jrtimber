@@ -1,7 +1,7 @@
-"use client";
-import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
-import { cn } from "@/utils/cn";
+'use client'
+import React, { useState } from 'react'
+import { HoveredLink, Menu, MenuItem, ProductItem } from '../ui/navbar-menu'
+import { cn } from '@/utils/cn'
 
 export function NavbarDemo() {
   return (
@@ -11,25 +11,35 @@ export function NavbarDemo() {
         The Navbar will show on top of the page
       </p>
     </div>
-  );
+  )
 }
 
 export function Navbar({ className }) {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(null)
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
+      className={cn('fixed top-10 inset-x-0 max-w-2xl mx-auto z-50', className)}
     >
       <Menu setActive={setActive}>
-      <HoveredLink href="/" setActive={setActive} active={active} item="Home" >
-        Home
-      </HoveredLink>
-      <HoveredLink href="/about-us" setActive={setActive} active={active} item="AboutUS" >
-        About Us
-      </HoveredLink>
-      <HoveredLink href="/services" setActive={setActive} active={active} item="Services" >
-        Services
-      </HoveredLink>
+        <HoveredLink href="/" setActive={setActive} active={active} item="Home">
+          Home
+        </HoveredLink>
+        <HoveredLink
+          href="/about"
+          setActive={setActive}
+          active={active}
+          item="AboutUS"
+        >
+          About Us
+        </HoveredLink>
+        <HoveredLink
+          href="/services"
+          setActive={setActive}
+          active={active}
+          item="Services"
+        >
+          Services
+        </HoveredLink>
 
         {/* <MenuItem setActive={setActive} active={active} item="Servicess">
            <div className="flex flex-col space-y-4 text-sm"> 
@@ -68,10 +78,15 @@ export function Navbar({ className }) {
             />
           </div>
         </MenuItem>
-        <HoveredLink href="/contact-us" setActive={setActive} active={active} item="Contact" >
-        Contact Us
-      </HoveredLink>
+        <HoveredLink
+          href="/contact"
+          setActive={setActive}
+          active={active}
+          item="Contact"
+        >
+          Contact Us
+        </HoveredLink>
       </Menu>
     </div>
-  );
+  )
 }
