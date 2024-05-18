@@ -119,29 +119,5 @@ const data = [
 export function HeroParallaxDemo() {
   const [products, setProducts] = useState(data)
 
-  useEffect(() => {
-    // for (let i = 1; i < 4; i++) {
-    //   for (let j = 1; j < 5; j++) {
-    //     setProducts((prev) => [
-    //       ...prev,
-    //       {
-    //         title: 'Moonbeam' + i + j,
-    //         link: '',
-    //         thumbnail:
-    //           'https://timbercraftltd.com/wp-content/uploads/2023/11/download-' +
-    //           i +
-    //           '-' +
-    //           j +
-    //           '.jpg',
-    //       },
-    //     ])
-    //   }
-    //   console.log(products)
-    // }
-  }, [])
-
-  useEffect(() => {
-    console.log(products)
-  }, [products])
   return products && <HeroParallax products={products} />
 }

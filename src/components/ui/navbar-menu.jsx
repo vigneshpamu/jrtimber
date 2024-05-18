@@ -54,7 +54,7 @@ export const Menu = ({ setActive, children }) => {
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full boder border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-6 "
+      className="relative rounded-full border flex flex-row items-center  bg- white bg-mondo-400 text-white shadow-input flex justify-center space-x-4 px-6 py-3 "
     >
       {children}
     </nav>
@@ -83,7 +83,10 @@ export const ProductItem = ({ title, description, href, src }) => {
 
 export const HoveredLink = ({ children, ...rest }) => {
   return (
-    <Link {...rest} className="text-modo-500  hover:text-modo-600 ">
+    <Link
+      {...rest}
+      className="text-modo-500  hover:text-modo-600 text-sm md:text-[16px] "
+    >
       {children}
     </Link>
   )
