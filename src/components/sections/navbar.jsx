@@ -30,7 +30,7 @@ export function Navbar({ className }) {
           active={active}
           item="AboutUS"
         >
-          About Us
+          About
         </HoveredLink>
         <HoveredLink
           href="/services"
@@ -84,7 +84,7 @@ export function Navbar({ className }) {
           active={active}
           item="Contact"
         >
-          Contact Us
+          Contact
         </HoveredLink>
       </Menu>
     </div>
