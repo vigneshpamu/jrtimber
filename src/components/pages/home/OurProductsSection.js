@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const newArr = [
@@ -125,7 +126,9 @@ const OurProductsSection = () => {
           ))}
         </div>
 
-        <button>View All Products</button>
+        <Link href={'/products'} className="text-center  max-w-[150px] mx-auto">
+          View All Products
+        </Link>
       </div>
     </div>
   )

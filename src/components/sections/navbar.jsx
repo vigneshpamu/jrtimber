@@ -27,10 +27,10 @@ export function Navbar({ className }) {
       <Menu setActive={setActive}>
         <HoveredLink href="/" setActive={setActive} active={active} item="Home">
           <Image
-            src={'/images/common/logo.svg'}
+            src={'/images/common/nlogo.png'}
             width={50}
             height={50}
-            className="w-[120px]"
+            className="w-[30px]"
           />
         </HoveredLink>
         <HoveredLink href="/" setActive={setActive} active={active} item="Home">

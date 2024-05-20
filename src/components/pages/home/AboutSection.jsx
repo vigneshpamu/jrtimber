@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const AboutSection = () => {
@@ -34,11 +35,12 @@ const AboutSection = () => {
               materials and exceptional service.
             </p>
           </div>
-          <div className="">
-            <button className="bg-mondo-400 p-3 w-36 text-white rounded-md hover:bg-mondo-300">
-              About Us
-            </button>
-          </div>
+          <Link
+            href={'/about'}
+            className="bg-mondo-400 p-3 w-[150px] text-white text-center rounded-md hover:bg-mondo-300"
+          >
+            About Us
+          </Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 const fadeInAnimationsVariants = {
   initial: {
@@ -87,7 +88,9 @@ const WhatWeDoSection = () => {
             )
           })}
         </div>
-        <button>View All Services</button>
+        <Link href={'/services'} className="text-center  max-w-[150px] mx-auto">
+          View All Services
+        </Link>
       </div>
     </div>
   )

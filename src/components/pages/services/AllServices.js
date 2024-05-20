@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import Footer from '@/components/common/Footer'
+import { Navbar } from '@/components/sections/navbar'
 
 const cuttingData = [
   {
@@ -65,8 +66,9 @@ const pressingData = [
 export const AllServices = () => {
   return (
     <div>
-      <div className="w-full flex flex-col gap-5 items-center justify-center bg-mondo-100 h-[120px] md:h-[170px]">
-        <p className="text-2xl sm:text-3xl md:text-5xl uppercase font-semibold text-mondo-800">
+      <Navbar className="top-2" />
+      <div className="w-full flex flex-col gap-2 md:gap-5 items-center justify-center bg-mondo-100 h-[120px] md:h-[200px]">
+        <p className="text-2xl mt-12 md:mt-10   md:text-5xl uppercase font-semibold text-mondo-800">
           Services
         </p>
         <div className="h-[3px]  w-[150px] bg-mondo-800"></div>
