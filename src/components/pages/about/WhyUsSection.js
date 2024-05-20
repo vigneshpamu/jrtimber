@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const WhyUsSection = () => {
@@ -31,9 +32,13 @@ const WhyUsSection = () => {
               We market forest products and provide land management in many
               countries
             </p>
-            <button className="text-mondo-700 w-40 py-2 bg-mondo-50 font-semibold">
+            <Link
+              href={'/products'}
+              className="text-mondo-700 w-40 py-2 text-center bg-mondo-50 font-semibold"
+            >
               View Products
-            </button>
+            </Link>
+            {/* <button className="text-mondo-700 w-40 py-2 bg-mondo-50 font-semibold"></button> */}
           </div>
         </div>
       </div>
