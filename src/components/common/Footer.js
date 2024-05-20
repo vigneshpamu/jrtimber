@@ -153,23 +153,23 @@ const Footer = () => {
 
               <ul className="mt-8 space-y-4 text-sm">
                 <li>
-                  <a
+                  <Link
                     className="text-gray-700 transition hover:text-gray-700/75"
-                    href="#"
+                    href="/"
                   >
                     {' '}
                     Home{' '}
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
+                  <Link
                     className="text-gray-700 transition hover:text-gray-700/75"
                     href="/services"
                   >
                     {' '}
                     Services{' '}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
