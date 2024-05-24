@@ -51,7 +51,7 @@ const WhatWeDoSection = () => {
       <div className="max-w-[1300px] mx-auto flex flex-col gap-10 py-10">
         <div className="flex flex-col items-center justify-center gap-5 mb-16">
           <p className="uppercase text-4xl w-full  text-center font-bold text-mondo-600">
-            What we do
+            Our Services
           </p>
           <div className="h-[3px] w-[200px] bg-mondo-700"></div>
         </div>
