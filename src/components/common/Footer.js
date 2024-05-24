@@ -18,8 +18,8 @@ const Footer = () => {
             </div>
 
             <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
-              TimberCraft, A Premium Natural & Artificial Wood Veneers, Quality
-              Craftsmanship for Every Project.
+              TimberCraft LLC: Dynamic, innovative veneer experts, delivering
+              premium products and unparalleled service worldwide.
             </p>
 
             <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">

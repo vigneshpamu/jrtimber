@@ -11,6 +11,7 @@ const newArr = [
     imgUrl: '/images/home/product/all-products/1.jpg',
     description:
       'Aspen wood is lightweight, soft, and known for its fine texture and uniform grain patterns.',
+    id: 'Aspen-25',
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const newArr = [
     imgUrl: '/images/home/product/all-products/2.jpg',
     description:
       'Basswood is a soft, light wood, favored for carving and detailed woodwork due to its smooth grain.',
+    id: 'Basswood-25',
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const newArr = [
     imgUrl: '/images/home/product/all-products/3.jpg',
     description:
       'Cherry wood is prized for its rich color, smooth grain, durability and others in fine furniture making.',
+    id: 'Cherry-25',
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const newArr = [
     imgUrl: '/images/home/product/all-products/4.jpg',
     description:
       'Hard Maple is valued for its strength, hardness, and resistance, making it ideal for flooring and cabinetry.',
+    id: 'Maple-25',
   },
 ]
 
@@ -109,9 +113,11 @@ const OurProductsSection = () => {
                 <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   {item.description}
                 </p>
-                <button className="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">
-                  See More
-                </button>
+                <Link href={`/single/${item.id}`}>
+                  <button className="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">
+                    See More
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
