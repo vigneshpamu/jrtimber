@@ -4,13 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 import { GiMaterialsScience } from 'react-icons/gi'
 import { MdMyLocation } from 'react-icons/md'
-import {
-  GlassMagnifier,
-  MagnifierContainer,
-  MagnifierPreview,
-  MagnifierZoom,
-} from 'react-image-magnifiers'
-import ReactImageMagnify from 'react-image-magnify'
+
 import { TbWood } from 'react-icons/tb'
 import { BiCategory } from 'react-icons/bi'
 import Footer from '@/components/common/Footer'
