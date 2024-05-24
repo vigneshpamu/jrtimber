@@ -1,3 +1,5 @@
+import LeftImageSection from '@/components/common/LeftImageSection'
+import RightImageSection from '@/components/common/RightImageSection'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -34,6 +36,12 @@ const newArr = [
 ]
 
 const OurProductsSection = () => {
+  const artificialVeneer = `Timbercraft leads in artificial veneers for furniture, setting standards for innovation and quality. Dedicated to craftsmanship and sustainability, we deliver exceptional products that exceed customer expectations. Our luxurious finishes and durable materials enhance furniture's beauty and functionality, elevating any interior. Timbercraft revolutionizes the furniture industry with unparalleled artificial veneers.`
+  const naturalVeneer = `At Timbercraft, we excel in natural veneers, capturing nature's timeless beauty. We source the finest wood species from sustainable forests worldwide. Our meticulous processing enhances each veneer’s grain, texture, and color. From walnut's warmth to oak's elegance, our veneers elevate furniture design, adding luxury to any interior. Timbercraft’s craftsmanship creates unique, enduring pieces.`
+  const dyedVeneer = `Dyed veneers from TimberCraft combine natural beauty with vibrant colors. Sourced from sustainable forests and meticulously dyed, these veneers enhance grain and texture. Available in a wide range of shades, they offer versatile design options, adding a unique and stylish touch to any furniture piece while maintaining exceptional durability and elegance.`
+  const laminateVeneer = `Laminated veneers from TimberCraft offer the perfect blend of durability and aesthetics. Crafted from high-quality materials and sustainable wood sources, these veneers provide a resilient surface that withstands daily wear while showcasing the natural beauty of wood. With a variety of finishes and textures, our laminated veneers enhance any furniture design, adding elegance and lasting performance.`
+  const hardVeneer = `Premium hardwood from TimberCraft embodies superior quality and timeless elegance. Sourced from sustainable forests, our hardwood is meticulously selected for its exceptional grain, strength, and durability. Ideal for crafting luxurious and enduring furniture pieces, our premium hardwoods, including oak, walnut, and cherry, offer unmatched beauty and resilience, enhancing any interior with a touch of natural sophistication.`
+
   return (
     <div className="h-full bg-mondo-100 py-10">
       <div className="max-w-[1300px] mx-auto flex flex-col gap-10">
@@ -43,59 +51,42 @@ const OurProductsSection = () => {
           </p>
           <div className="h-[3px] w-[200px] bg-mondo-700"></div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-10 lg:gap-20">
-          <div className="flex flex-col px-5 md:flex-row gap-10 items-center ">
-            <Image
-              src={'/images/home/about/artificial.webp'}
-              height="600"
-              width="1200"
-              className="w-full md:w-[500px] h-[250px] rounded-xl"
-            />
-            <div className="flex flex-col gap-5">
-              <p className="text-4xl font-bold text-mondo-500">
-                Artificial Veneers
-              </p>
-
-              <p>
-                Timbercraft, the leader in artificial veneers for furniture,
-                sets the standard for innovation and quality. Dedicated to
-                craftsmanship and sustainability, we consistently deliver
-                exceptional products that exceed customer expectations. Our
-                luxurious finishes and durable materials enhance the beauty and
-                functionality of furniture, elevating any interior. With
-                expertise and a passion for excellence, Timbercraft
-                revolutionizes the furniture industry with an unparalleled range
-                of artificial veneers.
-              </p>
-            </div>
-          </div>
-          <div className="h-[2px] w-[90%]   bg-mondo-200" />
-          <div className="flex flex-col-reverse px-5 md:flex-row gap-10 items-center ">
-            <div className="flex flex-col gap-5">
-              <p className="text-4xl font-bold text-mondo-500">
-                Natural Veneers
-              </p>
-
-              <p>
-                At Timbercraft, we excel in natural veneers, offering a superior
-                selection that captures natures timeless beauty. As an industry
-                leader, we source the finest wood species from sustainable
-                forests worldwide. Our commitment to quality ensures each veneer
-                is meticulously processed to enhance its grain, texture, and
-                color. Whether its the warmth of walnut or the elegance of oak,
-                our veneers elevate furniture design, adding luxury to any
-                interior. With Timbercrafts natural veneers, craftsmanship meets
-                natures beauty, creating unique and enduring furniture pieces.
-              </p>
-            </div>
-            <Image
-              src={'/images/home/about/natural.jpg'}
-              height="600"
-              width="1200"
-              className="w-full md:w-[500px] h-[250px] rounded-xl"
-            />
-          </div>
-          <div className="h-[2px] w-[90%] my-10  bg-mondo-200" />
+        <div className="flex flex-col items-center justify-center gap-10 lg:gap-10">
+          <LeftImageSection
+            url={'/images/home/about/artificial.webp'}
+            title={'Artificial Veneers'}
+            description={artificialVeneer}
+            link={'/products/artifical-veneers'}
+          />
+          <div className="h-[2px] w-[100%]   bg-mondo-200" />
+          <RightImageSection
+            url={'/images/home/about/natural.jpg'}
+            title={'Natural Veneers'}
+            description={naturalVeneer}
+            link={'/products/naturla-veneers'}
+          />
+          <div className="h-[2px] w-[100%]   bg-mondo-200" />
+          <LeftImageSection
+            url={'/images/home/about/dyed.webp'}
+            title={'Dyed Veneers'}
+            description={dyedVeneer}
+            link={'/products/dyed-veneers'}
+          />
+          <div className="h-[2px] w-[100%]   bg-mondo-200" />
+          <RightImageSection
+            url={'/images/home/about/laminate.jpg'}
+            title={'Laminates Veneers'}
+            description={laminateVeneer}
+            link={'/products/laminate-veneers'}
+          />
+          <div className="h-[2px] w-[100%]   bg-mondo-200" />
+          <LeftImageSection
+            url={'/images/home/about/hardwood.jpeg'}
+            title={'Premium Hard Wood Veneers'}
+            description={hardVeneer}
+            link={'/products/hardwood-veneers'}
+          />
+          <div className="h-[2px] w-[100%]   bg-mondo-200" />
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-x-10 px-5">
           {newArr.map((item) => (

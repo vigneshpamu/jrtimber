@@ -1,4 +1,9 @@
 import Footer from '@/components/common/Footer'
+import {
+  CardBody,
+  CardContainer,
+  CardItem,
+} from '@/components/sections/3d-card'
 import { Navbar } from '@/components/sections/navbar'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -116,6 +121,44 @@ const data = [
   },
 ]
 
+const allCategory = [
+  {
+    id: 1,
+    name: 'Artificial Veneer',
+    link: '/artificial-veneer',
+    img: '/images/home/about/artificial.webp',
+    desc: 'High-quality, engineered veneer with a consistent and versatile appearance.',
+  },
+  {
+    id: 2,
+    name: 'Natural Veneer',
+    link: '/natural-veneer',
+    img: '/images/home/about/natural.jpg',
+    desc: 'Genuine wood veneer showcasing the beauty of natural grains.',
+  },
+  {
+    id: 3,
+    name: 'Dyed Veneer',
+    link: '/dyed-veneer',
+    img: '/images/home/about/dyed.webp',
+    desc: 'Vibrantly colored veneer, dyed to achieve unique design effects.',
+  },
+  {
+    id: 4,
+    name: 'Laminate Veneer',
+    link: '/laminate-veneer',
+    img: '/images/home/about/laminate.jpg',
+    desc: 'Durable laminate veneer offering a wide range of stylish finishes.',
+  },
+  {
+    id: 5,
+    name: 'Hard Wood Veneer',
+    link: '/hardwood-veneer',
+    img: '/images/home/about/hardwood.jpeg',
+    desc: 'Premium hardwood veneer known for its strength and rich texture.',
+  },
+]
+
 const AllProducts = () => {
   return (
     <div>
@@ -128,14 +171,15 @@ const AllProducts = () => {
       </div>
 
       <div className="bg-mondo-50 py-10">
-        <div className="max-w-[1300px] mx-auto px-5">
-          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10">
+        <div className="max-w-[1300px] mx-auto flex flex-wrap justify-center gap-5 px-5">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10">
             {data.map((item, index) => {
               return (
                 <Link href={item.link} key={index} className="relative group">
                   <div className="relative w-full h-[400px] overflow-hidden">
                     <Image
                       src={item.thumbnail}
+                      alt={item.thumbnail}
                       width={500}
                       height={500}
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
@@ -150,7 +194,57 @@ const AllProducts = () => {
                 </Link>
               )
             })}
-          </div>
+          </div> */}
+          {allCategory.map((item, index) => {
+            return (
+              <CardContainer className="inter-var" key={index}>
+                <CardBody className="bg-mondo-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+                  <CardItem
+                    translateZ="50"
+                    className="text-xl font-bold text-mondo-500 dark:text-white"
+                  >
+                    {item.name}
+                  </CardItem>
+                  <CardItem
+                    as="p"
+                    translateZ="60"
+                    className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                  >
+                    {item.desc}
+                  </CardItem>
+                  <CardItem translateZ="100" className="w-full mt-4">
+                    <Image
+                      src={item.img}
+                      height="1000"
+                      width="1000"
+                      className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                      alt="thumbnail"
+                    />
+                  </CardItem>
+                  <div className="flex justify-between items-center mt-20">
+                    {/* <CardItem
+                      translateZ={20}
+                      as={Link}
+                      href="https://twitter.com/mannupaaji"
+                      target="__blank"
+                      className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+                    >
+                      Try now →
+                    </CardItem> */}
+                    <Link href={`/products${item.link}`}>
+                      <CardItem
+                        translateZ={20}
+                        as="button"
+                        className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                      >
+                        See Products
+                      </CardItem>
+                    </Link>
+                  </div>
+                </CardBody>
+              </CardContainer>
+            )
+          })}
         </div>
       </div>
       <Footer />
