@@ -34,6 +34,7 @@ const AddToQuotePage = () => {
                     src={item.images.img[0]}
                     width={150}
                     height={150}
+                    alt={item['Product Name']}
                     className="max-h-[120px] min-w-[120px] md:max-h-[150px] md:min-w-[150px]  rounded-lg"
                   />
                   <div className="flex flex-col justify-between">

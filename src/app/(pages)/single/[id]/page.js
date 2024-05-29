@@ -15,7 +15,7 @@ import { useRouter } from 'next/navigation'
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css'
 import InnerImageZoom from 'react-inner-image-zoom'
 import CommonNav from '@/components/common/CommonNav'
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const data = [
     {
       id: 'Maple-25',
@@ -339,4 +339,4 @@ const page = ({ params }) => {
   )
 }
 
-export default page
+export default Page
