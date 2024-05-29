@@ -5,7 +5,9 @@ const MobileSpecification = ({ product }) => {
     <div className="block md:hidden max-w-[1300px] mx-auto py-10  px-3">
       <div className="bg-mondo-50 p-4 rounded shadow">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-xl font-bold">PRODUCT SPECIFICATION</h1>
+          <h1 className="text-lg sm:text-xl font-bold">
+            PRODUCT SPECIFICATION
+          </h1>
         </div>
         <div className="space-y-4">
           {Object.entries(product).map(([key, value]) => {

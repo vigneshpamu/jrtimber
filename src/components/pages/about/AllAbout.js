@@ -9,11 +9,13 @@ import WhyUsSection from './WhyUsSection'
 import CSRSection from './CSRSection'
 import Footer from '@/components/common/Footer'
 import { Navbar } from '@/components/sections/navbar'
+import CommonNav from '@/components/common/CommonNav'
 
 const AllAbout = () => {
   return (
     <div>
-      <Navbar className="top-2" />
+      {/* <Navbar className="top-2" /> */}
+      <CommonNav />
       {/* Header  */}
       <HeaderSection />
       <HeroSection />

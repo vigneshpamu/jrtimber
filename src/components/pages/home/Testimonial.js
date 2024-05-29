@@ -5,73 +5,73 @@ import CardStack from '@/components/sections/cardstack'
 
 const testimonial1 = [
   {
-    name: 'Paul Starr',
+    name: 'Ahmed Al Mansoori',
     image:
       'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
     quote:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit rerum incidunt, a consequuntur recusandae ab saepe illo est quia obcaecati  !',
+      "The artificial veneer from this company is top-notch. The quality and consistency are unparalleled. As a middleman, I rely on their products to keep my customers satisfied and they've never let me down.",
   },
   {
-    name: 'Paul Starr',
+    name: 'Rohit Sharma',
     image:
-      'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+      'https://images.unsplash.com/photo-1573497619951-6ab1a3a0e9d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
     quote:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad mollitia rerum quo unde neque atque molestias quas pariatur! Sint, maxime?',
+      'Their natural veneers are simply beautiful. The grains and textures are perfect for the high-end projects we handle. The fact that they offer cutting and stitching services is a huge plus.',
   },
   {
-    name: 'Paul Starr',
+    name: 'James Wong',
     image:
-      'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+      'https://images.unsplash.com/photo-1595152772828-24b37f7d8f16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
     quote:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit esse delectus, maiores fugit, reiciendis culpa inventore sint accusantium libero dolore eos quasi a ex  ',
+      'Their dyed veneers are vibrant and consistent. The color range is impressive, and the quality is always reliable. As a reseller, I appreciate their prompt service and large stock availability.',
   },
 ]
 
 const testimonial2 = [
   {
-    name: 'Paul Starr',
+    name: 'Fatima Al Nuaimi',
     image:
-      'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+      'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
     quote:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, fuga?',
+      'The laminates we get from this company are perfect for our furniture manufacturing. They offer a great variety, and the pressing services they provide ensure a perfect finish every time.',
   },
   {
-    name: 'Paul Starr',
+    name: 'Michael Carter',
     image:
-      'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+      'https://images.unsplash.com/photo-1606851091470-368b444f38af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
     quote:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate officia natus blanditiis rerum incidunt ex autem repudiandae ',
+      "I've been working with them for years and their hardwood veneers are the best in the market. The durability and quality are exactly what my clients are looking for.",
   },
   {
-    name: 'Paul Starr',
+    name: 'Ayesha Khan',
     image:
-      'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+      'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
     quote:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, rerum. Nobis laborum praesentium necessitatibus vero.',
+      'Their services go beyond just selling veneer. The cutting and stitching services save us a lot of time and effort. We always receive perfectly prepared pieces ready for installation.',
   },
 ]
 
 const testimonial3 = [
   {
-    name: 'Paul Starr',
+    name: 'David Johnson',
     image:
-      'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
     quote:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores quaerat quasi ipsa repellendus quam! Beatae pariatur quia distinctio fugit repellendus repudiandae nostrum consectetur quibusdam quo.',
+      'Their stock of veneers is unmatched in the UAE. Whether I need a specific type of veneer or large quantities, they always have what I need. Their customer service is also excellent.',
   },
   {
-    name: 'Paul Starr',
+    name: 'Priya Patel',
     image:
-      'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+      'https://images.unsplash.com/photo-1554156123-644110a1723e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
     quote:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit, modi!',
+      'We use their veneers in a variety of projects, from high-end residential to commercial. The variety and quality they offer are ideal for meeting our diverse needs.',
   },
   {
-    name: 'Paul Starr',
+    name: 'Richard Evans',
     image:
-      'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+      'https://images.unsplash.com/photo-1603415526960-f36d6b8712b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
     quote:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam numquam, unde molestiae commodi temporibus dicta.',
+      'The artificial veneers are great for budget projects without compromising on quality. Their service is always quick and reliable, making them a trusted partner.',
   },
 ]
 

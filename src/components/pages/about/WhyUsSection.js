@@ -29,8 +29,7 @@ const WhyUsSection = () => {
             </p>
             <div className="h-[3px] w-[50px] bg-mondo-500"></div>
             <p className="text-mondo-100 max-w-[80%]">
-              We market forest products and provide land management in many
-              countries
+              We are the biggest stockist in UAE
             </p>
             <Link
               href={'/products'}

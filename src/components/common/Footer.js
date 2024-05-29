@@ -18,8 +18,8 @@ const Footer = () => {
             </div>
 
             <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
-              TimberCraft LLC: Dynamic, innovative veneer experts, delivering
-              premium products and unparalleled service worldwide.
+              A Dynamic, innovative veneer experts, delivering premium products
+              and unparalleled service worldwide.
             </p>
 
             <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
@@ -141,15 +141,14 @@ const Footer = () => {
               <p className="text-lg font-medium text-gray-900">Address</p>
 
               <div className="mt-8 space-y-1 text-sm">
-                <p>AL Quoz</p>
-                <p>Industrial Area 2</p>
-                <p>Al Quoz 2</p>
-                <p>Dubai United Arab Emirates</p>
+                <p>AL Quoz - Industrial Area 2</p>
+                <p>Dubai</p>
+                <p>United Arab Emirates</p>
               </div>
             </div>
 
             <div className="text-center sm:text-left">
-              <p className="text-lg font-medium text-gray-900">Nav Links</p>
+              <p className="text-lg font-medium text-gray-900">Pages</p>
 
               <ul className="mt-8 space-y-4 text-sm">
                 <li>

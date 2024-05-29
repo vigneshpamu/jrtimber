@@ -32,7 +32,7 @@ const servicesArr = [
   },
   {
     id: 2,
-    name: 'Stiching',
+    name: 'Stitching',
     imgUrl: '/images/home/services/stiching.jpg',
     description:
       'Basswood is a soft, light wood, favored for carving and detailed woodwork due to its smooth grain.',
