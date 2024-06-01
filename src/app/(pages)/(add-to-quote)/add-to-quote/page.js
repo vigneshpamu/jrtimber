@@ -47,7 +47,7 @@ const AddToQuotePage = () => {
 
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem('quote'))
-    if (items.length) {
+    if (items != null && items.length) {
       console.log(items)
       setQuoteItems(items)
     }
