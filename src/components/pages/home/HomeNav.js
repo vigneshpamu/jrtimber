@@ -94,14 +94,14 @@ const HomeNav = () => {
           >
             Contact
           </Link>
-          <Link
+          {/* <Link
             href={'/contact'}
             className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
           >
             <Button className="bg-mondo-600 dark:bg-slate-900 text-white border-mondo-700 dark:border-slate-800">
               Request For Quote
             </Button>
-          </Link>
+          </Link> */}
           {/* <Link href={'/wishlist'}>
             <PiBasketThin className="text-mondo-400 text-3xl" />
           </Link> */}
@@ -184,14 +184,14 @@ const HomeNav = () => {
                     Contact Us
                   </Link>
                 </motion.div>
-                <Link
+                {/* <Link
                   href={'/contact'}
                   className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
                 >
                   <Button className="bg-mondo-600 dark:bg-slate-900 text-white border-mondo-700 dark:border-slate-800">
                     Request For Quote
                   </Button>
-                </Link>
+                </Link> */}
               </motion.div>
             </motion.div>
           )}
