@@ -1,5 +1,4 @@
-'use client'
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import {
   motion,
   useAnimationFrame,
@@ -7,8 +6,6 @@ import {
   useMotionValue,
   useTransform,
 } from 'framer-motion'
-import { useRef } from 'react'
-import { cn } from '@/utils/cn'
 
 export function Button({
   borderRadius = '1.75rem',
@@ -22,10 +19,7 @@ export function Button({
 }) {
   return (
     <Component
-      className={cn(
-        'bg-transparent relative text-xl  h-10 w-40 p-[1px] overflow-hidden ',
-        containerClassName
-      )}
+      className={`bg-transparent relative text-xl h-10 w-40 p-[1px] overflow-hidden ${containerClassName}`}
       style={{
         borderRadius: borderRadius,
       }}
@@ -37,19 +31,13 @@ export function Button({
       >
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
-            className={cn(
-              'h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)]',
-              borderClassName
-            )}
+            className={`h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)] ${borderClassName}`}
           />
         </MovingBorder>
       </div>
 
       <div
-        className={cn(
-          'relative bg-slate-900/[0.8] border-2 border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased',
-          className
-        )}
+        className={`relative bg-slate-900/[0.8] border-2 border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased ${className}`}
         style={{
           borderRadius: `calc(${borderRadius} * 0.96)`,
         }}
@@ -70,13 +58,15 @@ export const MovingBorder = ({
   const pathRef = useRef()
   const progress = useMotionValue(0)
 
-  useAnimationFrame((time) => {
+  useEffect(() => {
     const length = pathRef.current?.getTotalLength()
     if (length) {
       const pxPerMillisecond = length / duration
-      progress.set((time * pxPerMillisecond) % length)
+      useAnimationFrame((time) => {
+        progress.set((time * pxPerMillisecond) % length)
+      })
     }
-  })
+  }, [duration, progress])
 
   const x = useTransform(
     progress,
@@ -99,12 +89,11 @@ export const MovingBorder = ({
         height="100%"
         {...otherProps}
       >
-        <rect
+        <path
           fill="none"
-          width="100%"
-          height="100%"
-          rx={rx}
-          ry={ry}
+          d={`M 0,${ry} Q 0,0 ${rx},0 H ${100 - rx} Q 100,0 100,${ry} V ${
+            100 - ry
+          } Q 100,100 ${100 - rx},100 H ${rx} Q 0,100 0,${100 - ry} Z`}
           ref={pathRef}
         />
       </svg>
