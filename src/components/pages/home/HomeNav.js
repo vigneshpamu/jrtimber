@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { PiBasketThin } from 'react-icons/pi'
 import { AnimatePresence, motion } from 'framer-motion'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { Button } from '@/components/sections/moving-border'
 
 const HomeNav = () => {
   const [isOpen, setIsOpen] = useState(false)
