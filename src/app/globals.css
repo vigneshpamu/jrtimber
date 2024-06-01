@@ -122,6 +122,14 @@ body {
   font-weight: 300;
 }
 
+.rotate-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate-hover:hover {
+  transform: rotate(180deg);
+}
+
 @media (max-width: 991px) {
   .clip video {
     max-width: 90%;

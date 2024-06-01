@@ -1,7 +1,8 @@
+import { fadeIn } from '@/utils/animate'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
+import { motion } from 'framer-motion'
 const AboutSection = () => {
   return (
     <div className=" w-full bg-mondo-200 py-12  ">
@@ -12,20 +13,38 @@ const AboutSection = () => {
         <div className="h-[3px] w-[200px] bg-mondo-700"></div>
       </div>
       <div className="max-w-[1300px] md:px-5 mx-auto  flex flex-col md:flex-row items-center justify-center gap-10 md:gap-2">
-        <Image
-          src={'/images/home/about/bg1.jpg'}
-          height="600"
-          width="1200"
-          className="object-cover w-[90%] md:w-[350px] lg:w-[500px] h-[350px]  md:h-[400px] rounded-xl  transition-transform duration-500 ease-in-out group-hover:scale-110"
-        />
+        <motion.div
+          variants={fadeIn('up', 0.3, 0.6)}
+          initial="hidden"
+          whileInView={'show'}
+          className="object-cover w-[90%] md:min-w-[350px] lg:min-w-[500px] h-[350px]  md:h-[400px] rounded-xl  transition-transform duration-500 ease-in-out group-hover:scale-110"
+        >
+          <Image
+            src={'/images/home/about/bg1.jpg'}
+            height="600"
+            width="1200"
+            alt="timber"
+            className="object-cover  min-w-full h-full rounded-lg"
+          />
+        </motion.div>
         <div className="px-5 lg:py-10  pr-5 flex flex-col gap-20">
           <div className="">
-            <p className="text-mondo-600 uppercase text-2xl md:text-lg lg:text-2xl font-bold">
+            <motion.p
+              variants={fadeIn('left', 0.3, 0.6)}
+              initial="hidden"
+              whileInView={'show'}
+              className="text-mondo-600 uppercase text-2xl md:text-lg lg:text-2xl font-bold"
+            >
               Timbercraft: Your Premier Source for Timber and Veneers in the
               Middle East
-            </p>
+            </motion.p>
 
-            <p className="mt-[20px] md:text-sm lg:text-md">
+            <motion.p
+              variants={fadeIn('left', 0.5, 0.6)}
+              initial="hidden"
+              whileInView={'show'}
+              className="mt-[20px] md:text-sm lg:text-md"
+            >
               Timbercraft stands as the foremost trader of timber and veneers,
               boasting an extensive inventory and unparalleled expertise in the
               Middle East region. As the largest stockists in the area, we offer
@@ -33,14 +52,16 @@ const AboutSection = () => {
               to meet diverse needs. Whether you are a contractor, designer, or
               homeowner, Timbercraft is your trusted partner for superior
               materials and exceptional service.
-            </p>
+            </motion.p>
           </div>
-          <Link
-            href={'/about'}
-            className="bg-mondo-400 p-3 w-[150px] text-white text-center rounded-md hover:bg-mondo-300"
+          <motion.div
+            variants={fadeIn('left', 0.6, 0.6)}
+            initial="hidden"
+            whileInView={'show'}
+            className="bg-mondo-400 p-3 w-[150px] text-white text-center rounded-md hover:bg-mondo-300 transition-all"
           >
-            About Us
-          </Link>
+            <Link href={'/about'}>About Us</Link>
+          </motion.div>
         </div>
       </div>
     </div>

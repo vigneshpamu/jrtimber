@@ -2,6 +2,8 @@ import React from 'react'
 import { GrStatusGood } from 'react-icons/gr'
 import { GrUserExpert } from 'react-icons/gr'
 import { GiCircleForest } from 'react-icons/gi'
+import { motion } from 'framer-motion'
+import { fadeInAnimationsVariants } from '@/utils/animate'
 
 const speciality = [
   {
@@ -38,7 +40,11 @@ const OurSpecialitySection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 justify-center md:justify-start lg:justify-start">
           {speciality.map((item, index) => {
             return (
-              <div
+              <motion.div
+                variants={fadeInAnimationsVariants}
+                initial="initial"
+                whileInView="animate"
+                custom={index}
                 key={index}
                 className="flex flex-col items-center justify-center gap-4"
               >
@@ -54,7 +60,7 @@ const OurSpecialitySection = () => {
                 <div>
                   <p className="text-sm text-center">{item.description}</p>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
         </div>

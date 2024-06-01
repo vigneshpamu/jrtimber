@@ -28,21 +28,21 @@ const servicesArr = [
     name: 'Cutting',
     imgUrl: '/images/home/services/cutting.jpg',
     description:
-      'Aspen wood is lightweight, soft, and known for its fine texture and uniform grain patterns.',
+      'The cutting process shapes veneer sheets using precise tools for uniform thickness and accurate dimensions.',
   },
   {
     id: 2,
     name: 'Stitching',
     imgUrl: '/images/home/services/stiching.jpg',
     description:
-      'Basswood is a soft, light wood, favored for carving and detailed woodwork due to its smooth grain.',
+      'The stitching process joins veneer sheets using adhesive or thread, ensuring a seamless and durable finish.',
   },
   {
     id: 3,
     name: 'Pressing',
     imgUrl: '/images/home/services/pressing.jpg',
     description:
-      'Cherry wood is prized for its rich color, smooth grain, durability and others in fine furniture making.',
+      'The pressing process bonds veneer to substrates using heat and pressure for a smooth, firm finish.',
   },
 ]
 const WhatWeDoSection = () => {
@@ -71,6 +71,7 @@ const WhatWeDoSection = () => {
                   width={500}
                   height={500}
                   objectFit=""
+                  alt="main-img"
                   className="min-h-[286px] w-full object-cover"
                 />
                 <div className="w-full flex flex-col gap-5 items-center justify-center">

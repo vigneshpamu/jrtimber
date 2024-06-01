@@ -13,7 +13,6 @@ import HomeNav from '@/components/pages/home/HomeNav'
 export default function Home() {
   return (
     <div className=" text-mondo-700 bg-stone-50 overflow-hidden">
-      {/* <Navbar className="top-2" /> */}
       <HomeNav />
       <HeroParallaxDemo />
       <AboutSection />

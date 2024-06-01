@@ -8,186 +8,13 @@ import {
   CardItem,
 } from '@/components/sections/3d-card'
 import { Navbar } from '@/components/sections/navbar'
+import { products } from '@/data/products'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-hot-toast'
 import { MdOutlineFilterList } from 'react-icons/md'
-
-const data = [
-  {
-    link: '/',
-    title: 'Cherry Crown',
-    thumbnail: '/images/home/hero/Cherry-Crown_.jpg',
-    category: 'natural veneer',
-  },
-  {
-    link: '/',
-    title: 'Limewash Oak',
-    thumbnail: '/images/home/hero/Limewash Oak.jpg',
-    category: 'dyed veneer',
-  },
-  {
-    link: '/',
-    title: 'Maple Crown Cut',
-    thumbnail: '/images/home/hero/Maple-Crown-Cut.jpg',
-    category: 'laminates',
-  },
-  {
-    link: '/',
-    title: 'Rose Wood',
-    thumbnail: '/images/home/hero/Rose wood.jpg',
-    category: 'dyed veneer',
-  },
-  {
-    link: '/',
-    title: 'Sycomore',
-    thumbnail: '/images/home/hero/Sycomore.jpg',
-    category: 'dyed veneer',
-  },
-  {
-    link: '/',
-    title: 'Teak Golden Cut',
-    thumbnail: '/images/home/hero/Teak Golden Cut.jpg',
-    category: 'dyed veneer',
-  },
-  {
-    link: '/',
-    title: 'Teak Fumed',
-    thumbnail: '/images/home/hero/Teak Fumed.jpeg',
-    category: 'artificial veneer',
-  },
-  {
-    link: '/',
-    title: 'Walnut Flat Cut',
-    thumbnail: '/images/home/hero/Walnut Flat Cut.jpg',
-    category: 'hardwood',
-  },
-  {
-    link: '/',
-    title: 'Wenge',
-    thumbnail: '/images/home/hero/Wenge.jpg',
-    category: 'laminates',
-  },
-  {
-    link: '/',
-    title: 'White Ash',
-    thumbnail: '/images/home/hero/White Ash.jpg',
-    category: 'artificial veneer',
-  },
-  {
-    link: '/',
-    title: 'American Walnut',
-    thumbnail: '/images/home/hero/natural/American Walnut.jpg',
-    category: 'natural veneer',
-  },
-  {
-    link: '/',
-    title: 'Anigre',
-    thumbnail: '/images/home/hero/natural/Anigre.jpg',
-    category: 'natural veneer',
-  },
-  {
-    link: '/',
-    title: 'Beech',
-    thumbnail: '/images/home/hero/natural/Beech.jpg',
-    category: 'natural veneer',
-  },
-  {
-    link: '/',
-    title: 'Bubinga Plain',
-    thumbnail: '/images/home/hero/natural/Bubinga Plain.jpg',
-    category: 'dyed veneer',
-  },
-  {
-    link: '/',
-    title: 'Cherry Wood',
-    thumbnail: '/images/home/hero/natural/Cherry Wood.jpg',
-    category: 'hardwood',
-  },
-  {
-    link: '/',
-    title: 'Ebony',
-    thumbnail: '/images/home/hero/natural/Ebony.jpg',
-    category: 'dyed veneer',
-  },
-  {
-    link: '/',
-    title: 'Maple',
-    thumbnail: '/images/home/hero/natural/Maple.jpg',
-    category: 'dyed veneer',
-  },
-  {
-    link: '/',
-    title: 'Mappa Burl',
-    thumbnail: '/images/home/hero/natural/Mappa Burl.jpg',
-    category: 'dyed veneer',
-  },
-  {
-    link: '/',
-    title: 'Red Oak',
-    thumbnail: '/images/home/hero/natural/Red Oak.jpg',
-    category: 'hardwood',
-  },
-  {
-    link: '/',
-    title: 'Sepele',
-    thumbnail: '/images/home/hero/natural/Sepele.jpg',
-    category: 'artificial veneer',
-  },
-  {
-    link: '/',
-    title: 'Zebrano QC',
-    thumbnail: '/images/home/hero/natural/Zebrano QC.jpg',
-    category: 'laminates',
-  },
-]
-
-const categories = [
-  'artificial veneer',
-  'natural veneer',
-  'dyed veneer',
-  'laminates',
-  'hardwood',
-]
-
-const allCategory = [
-  {
-    id: 1,
-    name: 'Artificial Veneer',
-    link: '/artificial-veneer',
-    img: '/images/home/about/artificial.webp',
-    desc: 'High-quality, engineered veneer with a consistent and versatile appearance.',
-  },
-  {
-    id: 2,
-    name: 'Natural Veneer',
-    link: '/natural-veneer',
-    img: '/images/home/about/natural.jpg',
-    desc: 'Genuine wood veneer showcasing the beauty of natural grains.',
-  },
-  {
-    id: 3,
-    name: 'Dyed Veneer',
-    link: '/dyed-veneer',
-    img: '/images/home/about/dyed.webp',
-    desc: 'Vibrantly colored veneer, dyed to achieve unique design effects.',
-  },
-  {
-    id: 4,
-    name: 'Laminate Veneer',
-    link: '/laminate-veneer',
-    img: '/images/home/about/laminate.jpg',
-    desc: 'Durable laminate veneer offering a wide range of stylish finishes.',
-  },
-  {
-    id: 5,
-    name: 'Hard Wood Veneer',
-    link: '/hardwood-veneer',
-    img: '/images/home/about/hardwood.jpeg',
-    desc: 'Premium hardwood veneer known for its strength and rich texture.',
-  },
-]
 
 const tabs = [
   {
@@ -213,14 +40,14 @@ const tabs = [
 ]
 
 const AllProducts = () => {
-  const [activeTab, setActiveTab] = useState('')
+  const [activeTab, setActiveTab] = useState('artificial veneer')
   const [previousItem, setPreviousItem] = useState([])
   const [filteredItem, setFilteredItem] = useState([])
   const [input, setInput] = useState('')
 
   const handleTabChange = (val) => {
     localStorage.setItem('routeName', val)
-    const fdata = data.filter((item) => item.category === val)
+    const fdata = products.filter((item) => item['Category'] === val)
     setFilteredItem(fdata)
     setPreviousItem(fdata)
     setActiveTab(val)
@@ -228,22 +55,28 @@ const AllProducts = () => {
 
   useEffect(() => {
     const route = localStorage.getItem('routeName')
-    const fdata = data.filter((item) => item.category === route)
-    setFilteredItem(fdata)
-    setPreviousItem(fdata)
-    setActiveTab(route)
+    if (route?.length && route != null) {
+      const fdata = products.filter((item) => item['Category'] === route)
+      setFilteredItem(fdata)
+      setPreviousItem(fdata)
+      setActiveTab(route)
+    } else {
+      const fdata = products.filter((item) => item['Category'] === activeTab)
+      setFilteredItem(fdata)
+      setPreviousItem(fdata)
+    }
   }, [])
 
   const handleText = (input) => {
     setInput(input)
-    const filtered = data.filter(
+    const filtered = products.filter(
       (item) =>
-        item.title.toLowerCase().includes(input.toLowerCase()) &&
-        item.category.toLowerCase().includes(activeTab.toLowerCase())
+        item['Product Name'].toLowerCase().includes(input.toLowerCase()) &&
+        item['Category'].toLowerCase().includes(activeTab.toLowerCase())
     )
 
     console.log(filtered)
-    if (filtered.length !== data.length) {
+    if (filtered.length !== products.length) {
       setFilteredItem(filtered)
     } else {
       setFilteredItem(previousItem)
@@ -272,7 +105,7 @@ const AllProducts = () => {
                 <button
                   key={tab.value}
                   type="button"
-                  className={`relative min-w-0 flex-1 bg-mondo-50 first:border-s-0 border-s border-b-2 py-4 px-4 text-[11px] sm:text-sm font-medium text-center overflow-hidden ${
+                  className={`relative min-w-0 flex-1 bg-mondo-50 first:border-s-0 border-s border-b-2 py-2 sm:py-4 px-2 sm:px-4 text-[9px] sm:text-sm font-medium text-center overflow-hidden ${
                     activeTab === tab.value
                       ? 'border-b-mondo-600 text-mondo-900'
                       : 'text-mondo-500 hover:text-mondo-700 hover:bg-mondo-100'
@@ -313,10 +146,9 @@ const AllProducts = () => {
                     initial={{ opacity: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.25, delay: index * 0.07 }} // Adjust delay here
-                    className="w-[384px]"
+                    className="w-full "
                   >
-                    <Link href={item.link} className="relative group">
-                      {/* <div className="relative w-full h-[400px] overflow-hidden">
+                    {/* <div className="relative w-full h-[400px] overflow-hidden">
                         <Image
                           src={item.thumbnail}
                           alt={item.thumbnail}
@@ -331,8 +163,7 @@ const AllProducts = () => {
                           </p>
                         </div>
                       </div> */}
-                      <ProductCard item={item} />
-                    </Link>
+                    <ProductCard item={item} />
                   </motion.div>
                 )
               })}

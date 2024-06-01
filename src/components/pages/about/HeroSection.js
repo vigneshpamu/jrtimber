@@ -6,6 +6,8 @@ import {
   GlowingStarsDescription,
   GlowingStarsTitle,
 } from '../../sections/glowing-starts'
+import { fadeInAnimationsVariants } from '@/utils/animate'
+import { motion } from 'framer-motion'
 
 const tabs = [
   {
@@ -30,45 +32,6 @@ const HeroSection = () => {
   return (
     <div className="w-full  bg-mondo-200 py-10">
       <div className="max-w-[1300px] mx-auto flex px-3 flex-col md:flex-row flex-wrap items-start justify-center gap-5  lg:gap-10">
-        {/* <Image
-          src={'/images/home/services/cutting.jpg'}
-          width={500}
-          height={500}
-          className="h-[350px] w-full  md:max-w-[500px] object-cover"
-        />
-
-        <div>
-          <div className="w-full max-w-[500px]  mx-auto">
-            <div className="flex  gap-2">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.name}
-                  className={`py-3 px-8 text-sm font-medium text-gray-600 border ${
-                    activeTab === tab.name
-                      ? '  bg-mondo-300 !text-white px-8 border-0'
-                      : ''
-                  }`}
-                  onClick={() => setActiveTab(tab.name)}
-                >
-                  {tab.name}
-                </button>
-              ))}
-            </div>
-            <div className="py-4">
-              {tabs.map((tab) => (
-                <div
-                  key={tab.name}
-                  className={`${
-                    activeTab === tab.name ? 'block ' : 'hidden'
-                  } text-xl text-mondo-800`}
-                >
-                  {tab.content}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
-        {/* grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 */}
         <div className="flex flex-row gap-5 flex-wrap items-center justify-center">
           {tabs.map((item, index) => {
             return (
@@ -76,6 +39,7 @@ const HeroSection = () => {
                 title={item.name}
                 description={item.content}
                 key={index}
+                index={index}
               />
             )
           })}
@@ -85,9 +49,19 @@ const HeroSection = () => {
   )
 }
 
-export function GlowingStarsBackgroundCardPreview({ title, description }) {
+export function GlowingStarsBackgroundCardPreview({
+  title,
+  description,
+  index,
+}) {
   return (
-    <div className="flex w-full  md:w-[366px] py-0 items-center justify-center antialiased">
+    <motion.div
+      variants={fadeInAnimationsVariants}
+      initial="initial"
+      whileInView="animate"
+      custom={index}
+      className="flex w-full  md:w-[366px] py-0 items-center justify-center antialiased"
+    >
       <GlowingStarsBackgroundCard>
         <GlowingStarsTitle>{title}</GlowingStarsTitle>
         <div className="flex justify-between items-end">
@@ -97,7 +71,7 @@ export function GlowingStarsBackgroundCardPreview({ title, description }) {
           </div> */}
         </div>
       </GlowingStarsBackgroundCard>
-    </div>
+    </motion.div>
   )
 }
 

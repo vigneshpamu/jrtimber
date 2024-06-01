@@ -16,7 +16,6 @@ const AllAbout = () => {
     <div>
       {/* <Navbar className="top-2" /> */}
       <CommonNav />
-      {/* Header  */}
       <HeaderSection />
       <HeroSection />
       <OurSpecialitySection />

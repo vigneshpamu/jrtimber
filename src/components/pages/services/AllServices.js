@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import {
@@ -17,60 +18,8 @@ import {
   PiNumberCircleTwoFill,
 } from 'react-icons/pi'
 import CommonNav from '@/components/common/CommonNav'
-
-const cuttingData = [
-  {
-    title: 'Preparation: Log Selection and Preparation',
-    content:
-      'High-quality logs are selected based on desired grain pattern, color, and wood species. The selected logs are then debarked and sometimes soaked or steamed to soften the wood for easier cutting.',
-  },
-  {
-    title: 'Cutting: Techniques and Methods',
-    content:
-      'The logs undergo one of three main cutting techniques. In rotary cutting, the log is mounted and rotated against a stationary knife, peeling off a continuous sheet of veneer. In slicing, the log is sliced into sheets by moving it against a stationary knife. In quarter slicing, the log is quartered before slicing, producing distinctive grain patterns.',
-  },
-  {
-    title: 'Finishing: Drying, Trimming, and Packaging',
-    content:
-      'The veneer sheets are dried to the appropriate moisture content, either by air drying or using a kiln. After drying, the sheets are trimmed to standard sizes and graded based on quality. Veneers may be backed with a paper or fabric material to increase stability and prevent cracking. Finally, the veneer sheets are stacked, packed, and shipped to customers.',
-  },
-]
-
-const stichingData = [
-  {
-    title: 'Selection & Sorting: Choosing Veneer',
-    content:
-      'During selection and sorting, high-quality veneer sheets are chosen and sorted based on grain, color, and thickness.',
-  },
-  {
-    title: 'Stitching: Joining Veneer Sheets',
-    content:
-      'In the stitching phase, specialized machines join the veneer sheets using threads, adhesives, or tapes, ensuring the grain pattern matches across the joints.',
-  },
-  {
-    title: 'Finishing: Pressing, Drying, and Preparing',
-    content:
-      'In the finishing step, the stitched veneer is pressed and dried to ensure a strong bond and flat surface, inspected for defects, trimmed to the desired dimensions, and packaged for shipment.',
-  },
-]
-
-const pressingData = [
-  {
-    title: 'Preparation: Aligning & Stacking Veneer',
-    content:
-      'In the preparation phase, veneer sheets are carefully aligned and stacked to ensure even pressure distribution.',
-  },
-  {
-    title: 'Pressing: Applying Heat and Pressure',
-    content:
-      'During pressing, the stacked veneers are placed in a hydraulic or vacuum press where heat and pressure are applied, bonding the layers together and eliminating any air pockets.',
-  },
-  {
-    title: 'Post-Pressing Treatment',
-    content:
-      'In the post-pressing treatment, the pressed veneers are cooled to stabilize the bond, trimmed to precise dimensions, and inspected for quality before being packaged for shipment.',
-  },
-]
+import { fadeIn, fadeInAnimationsVariants } from '@/utils/animate'
+import { motion } from 'framer-motion'
 
 const veneerSteps = [
   'Veneer production starts with selecting logs from North American and European forests.',
@@ -105,11 +54,6 @@ const slicingMethods = [
 ]
 
 // Data 1
-const stitching = [
-  'Once the veneers are graded and sorted, they may need to be stitched together to form larger sheets.',
-  'The edges of the veneer sheets are carefully aligned and stitched using a specialized machine that applies a strong adhesive thread along the seam.',
-  'This process ensures a seamless and continuous appearance, which is particularly important for creating large panels or matching specific grain patterns.',
-]
 
 const drytrim = [
   {
@@ -155,7 +99,7 @@ const stichpress = [
 
 export const AllServices = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       {/* <Navbar className="top-2" /> */}
       <CommonNav />
       <div className="w-full flex flex-col gap-2 md:gap-5 items-center justify-center bg-mondo-100 h-[80px] md:h-[200px]">
@@ -177,13 +121,18 @@ export const AllServices = () => {
           </blockquote>
           <div className="mt-10 flex flex-col gap-2 sm:gap-10 px-2">
             <div className="flex flex-col gap-5">
-              <div className="flex flex-row gap-3 items-center">
+              <motion.div
+                variants={fadeIn('left', 0.3, 0.6)}
+                initial="hidden"
+                whileInView={'show'}
+                className="flex flex-row gap-3 items-center"
+              >
                 <GiDeadWood className="text-2xl" />
 
                 <p className="text-xl md:text-2xl font-semibold ">
                   Selection & Preparation of Logs
                 </p>
-              </div>
+              </motion.div>
               <div className="flex flex-col md:flex-row items-center gap-10  m l-5  w-full m">
                 <ul className="flex flex-col gap-2 text-m ondo-500 list-inside space-y-3 dark:text-gray-400">
                   {veneerSteps.map((step, index) => (
@@ -204,24 +153,36 @@ export const AllServices = () => {
                     </li>
                   ))}
                 </ul>
-
-                <Image
-                  src={'/images/services/1.jpg'}
-                  width={400}
-                  height={300}
+                <motion.div
+                  variants={fadeIn('up', 0.3, 0.6)}
+                  initial="hidden"
+                  whileInView={'show'}
                   className="w-full md:w-[60%] lg:w-[32%] h-[270px] rounded-md"
-                />
+                >
+                  <Image
+                    src={'/images/services/1.jpg'}
+                    width={400}
+                    height={300}
+                    className="w-full rounded-md"
+                    alt="veneer-selection"
+                  />
+                </motion.div>
               </div>
             </div>
             <hr className="m-3" />
             <div className="flex flex-col gap-5">
-              <div className="flex flex-row gap-3 items-center">
+              <motion.div
+                variants={fadeIn('left', 0.3, 0.6)}
+                initial="hidden"
+                whileInView={'show'}
+                className="flex flex-row gap-3 items-center"
+              >
                 <MdOutlineContentCut className="text-2xl" />
 
                 <p className="text-xl md:text-2xl font-semibold ">
                   Cutting Methods
                 </p>
-              </div>
+              </motion.div>
               <div>
                 <p className="text-sm sm:text-[19px] text -mondo-500 leading-normal">
                   Veneer cutting methods, essential for quality and appearance,
@@ -248,20 +209,39 @@ export const AllServices = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-10">
-                  <Image
-                    src={'/images/services/2.png'}
-                    width={400}
-                    height={400}
-                    className="rounded-lg w-full"
-                  />
-                  <Image
-                    src={'/images/services/rotary1.webp'}
-                    width={400}
-                    height={400}
-                    className="rounded-lg w-full"
-                  />
+                  <motion.div
+                    variants={fadeInAnimationsVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    custom={1}
+                    className="w-full"
+                  >
+                    <Image
+                      src={'/images/services/2.png'}
+                      width={400}
+                      height={400}
+                      className="rounded-lg w-full md:h-[410px] lg:h-[510px]"
+                      alt="rotary1"
+                    />
+                  </motion.div>
+                  <motion.div
+                    variants={fadeInAnimationsVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    custom={2}
+                    className="w-full"
+                  >
+                    <Image
+                      src={'/images/services/rotary1.jpg'}
+                      width={400}
+                      height={400}
+                      className="rounded-lg w-full md:h-[410px] lg:h-[510px]"
+                      alt="rotary2"
+                    />
+                  </motion.div>
                 </div>
               </div>
+              <hr className="m-3" />
               <div className="flex flex-col gap-5">
                 <div>
                   <div className="flex flex-row gap-2 items-center mx-3 text-mondo-700">
@@ -283,29 +263,44 @@ export const AllServices = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {slicingMethods.map((item, index) => {
                   return (
-                    <div
+                    <motion.div
+                      variants={fadeInAnimationsVariants}
+                      initial="initial"
+                      whileInView="animate"
+                      custom={index}
                       key={index}
+                      alt={item.name}
                       className="p-4 flex flex-col gap-4 rounded-lg bg-white"
                     >
                       <p className="text-xl font-semibold text-mondo-500">
                         {item.name}
                       </p>
-                      <Image src={item.img} width={400} height={400} />
+                      <Image
+                        src={item.img}
+                        width={400}
+                        height={400}
+                        alt={item.name}
+                      />
                       <p className="text-lg text-center">{item.desc}</p>
-                    </div>
+                    </motion.div>
                   )
                 })}
               </div>
             </div>
             <hr className="m-3" />
             <div className="flex flex-col gap-5">
-              <div className="flex flex-row gap-3 items-center">
+              <motion.div
+                variants={fadeIn('left', 0.3, 0.6)}
+                initial="hidden"
+                whileInView={'show'}
+                className="flex flex-row gap-3 items-center"
+              >
                 <PiHairDryerFill className="text-2xl" />
 
                 <p className="text-xl md:text-2xl font-semibold ">
                   Drying and Trimming
                 </p>
-              </div>
+              </motion.div>
               <div>
                 <p className="text-sm sm:text-[19px] text -mondo-500 leading-normal">
                   Veneer drying and trimming are crucial steps in veneer
@@ -319,7 +314,11 @@ export const AllServices = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {drytrim.map((item, index) => {
                   return (
-                    <div
+                    <motion.div
+                      variants={fadeInAnimationsVariants}
+                      initial="initial"
+                      whileInView="animate"
+                      custom={index}
                       key={index}
                       className="p-4 md:p-8 flex flex-col gap-5 bg-mondo-100 rounded-lg"
                     >
@@ -328,6 +327,7 @@ export const AllServices = () => {
                         src={item.img}
                         width={400}
                         height={400}
+                        alt={item.name}
                         className="h-[300px] md:h-[400px] w-full"
                       />
                       <ul className="list-disc pl-5 space-y-3">
@@ -335,20 +335,25 @@ export const AllServices = () => {
                           <li key={index}>{point}</li>
                         ))}
                       </ul>
-                    </div>
+                    </motion.div>
                   )
                 })}
               </div>
             </div>
             <hr className="m-3" />
             <div className="flex flex-col gap-5">
-              <div className="flex flex-row gap-3 items-center">
+              <motion.div
+                variants={fadeIn('left', 0.3, 0.6)}
+                initial="hidden"
+                whileInView={'show'}
+                className="flex flex-row gap-3 items-center"
+              >
                 <GiStitchedWound className="text-2xl" />
 
                 <p className="text-xl md:text-2xl font-semibold ">
                   Stitching and Pressing
                 </p>
-              </div>
+              </motion.div>
               <div>
                 <p className="text-sm sm:text-[19px] text -mondo-500 leading-normal">
                   Veneer stitching and pressing are essential in veneer
@@ -362,7 +367,11 @@ export const AllServices = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {stichpress.map((item, index) => {
                   return (
-                    <div
+                    <motion.div
+                      variants={fadeInAnimationsVariants}
+                      initial="initial"
+                      whileInView="animate"
+                      custom={index}
                       key={index}
                       className="p-4 md:p-8 flex flex-col gap-5 bg-mondo-100 rounded-lg"
                     >
@@ -371,6 +380,7 @@ export const AllServices = () => {
                         src={item.img}
                         width={400}
                         height={400}
+                        alt={item.name}
                         className="h-[300px] md:h-[400px] w-full"
                       />
                       <ul className="list-disc pl-5 space-y-3">
@@ -378,20 +388,25 @@ export const AllServices = () => {
                           <li key={index}>{point}</li>
                         ))}
                       </ul>
-                    </div>
+                    </motion.div>
                   )
                 })}
               </div>
             </div>
             <hr className="m-3" />
             <div className="flex flex-col gap-5">
-              <div className="flex flex-row gap-3 items-center">
+              <motion.div
+                variants={fadeIn('left', 0.3, 0.6)}
+                initial="hidden"
+                whileInView={'show'}
+                className="flex flex-row gap-3 items-center"
+              >
                 <LuSend className="text-2xl" />
 
                 <p className="text-xl md:text-2xl font-semibold ">
                   Final Finishing
                 </p>
-              </div>
+              </motion.div>
               <div>
                 <p className="text-sm sm:text-[19px] text -mondo-500 leading-normal">
                   The veneer sheets are finished with treatments like staining

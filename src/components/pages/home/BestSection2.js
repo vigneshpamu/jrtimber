@@ -24,6 +24,7 @@ const BestSection2 = () => {
           src={'/images/home/timber/timber.jpg'}
           height="600"
           width="1200"
+          alt="main-img"
           className="w-full h-full object-cover  scale"
         />
         <div className="absolute inset-0 bg-mondo-400 opacity-50 rounded-xl"></div>

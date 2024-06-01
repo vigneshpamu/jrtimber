@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { PiBasketThin } from 'react-icons/pi'
 import { AnimatePresence, motion } from 'framer-motion'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { Button } from '@/components/sections/moving-border'
 
 const HomeNav = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -51,20 +52,28 @@ const HomeNav = () => {
   }
   return (
     <div className="relative max-w-[1300px] mx-auto z-20">
-      <div className="absolute p-4 py-6 top-0 w-full left-1/2 transform -translate-x-1/2 flex flex-row justify-between">
-        <Image
-          src={'/images/common/logo.svg'}
-          width={200}
-          height={250}
-          alt="Logo"
-        />
-
+      <div className="absolute p-4 py-5 top-0 w-full left-1/2 transform -translate-x-1/2 flex flex-row justify-between">
+        <Link href={'/'}>
+          <Image
+            src={'/images/common/logo.svg'}
+            width={200}
+            height={250}
+            alt="Logo"
+            className="w-[150px] md:w-[200px]"
+          />
+        </Link>
         <div className="hidden md:flex flex-row gap-6 items-center">
           <Link
-            href={'/services'}
+            href={'/'}
             className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
           >
-            Services
+            Home
+          </Link>
+          <Link
+            href={'/about'}
+            className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
+          >
+            About Us
           </Link>
           <Link
             href={'/products'}
@@ -73,20 +82,29 @@ const HomeNav = () => {
             Products
           </Link>
           <Link
-            href={'/about'}
+            href={'/services'}
             className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
           >
-            About
+            Services
           </Link>
+
           <Link
             href={'/contact'}
             className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
           >
             Contact
           </Link>
-          <Link href={'/wishlist'}>
-            <PiBasketThin className="text-mondo-400 text-3xl" />
+          <Link
+            href={'/contact'}
+            className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
+          >
+            <Button className="bg-mondo-600 dark:bg-slate-900 text-white border-mondo-700 dark:border-slate-800">
+              Request For Quote
+            </Button>
           </Link>
+          {/* <Link href={'/wishlist'}>
+            <PiBasketThin className="text-mondo-400 text-3xl" />
+          </Link> */}
         </div>
 
         <div className="md:hidden">
@@ -122,11 +140,20 @@ const HomeNav = () => {
               >
                 <motion.div variants={item} className="my-4">
                   <Link
-                    href={'/services'}
+                    href={'/'}
                     className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
                     onClick={toggleMenu}
                   >
-                    Services
+                    Home
+                  </Link>
+                </motion.div>
+                <motion.div variants={item} className="my-4">
+                  <Link
+                    href={'/about'}
+                    className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
+                    onClick={toggleMenu}
+                  >
+                    About Us
                   </Link>
                 </motion.div>
                 <motion.div variants={item} className="my-4">
@@ -140,31 +167,31 @@ const HomeNav = () => {
                 </motion.div>
                 <motion.div variants={item} className="my-4">
                   <Link
-                    href={'/about'}
+                    href={'/services'}
                     className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
                     onClick={toggleMenu}
                   >
-                    About
+                    Services
                   </Link>
                 </motion.div>
+
                 <motion.div variants={item} className="my-4">
                   <Link
                     href={'/contact'}
                     className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
                     onClick={toggleMenu}
                   >
-                    Contact
+                    Contact Us
                   </Link>
                 </motion.div>
-                <motion.div variants={item} className="my-4">
-                  <Link
-                    href={'/wishlist'}
-                    className="my-4"
-                    onClick={toggleMenu}
-                  >
-                    <PiBasketThin className="text-mondo-400 text-3xl" />
-                  </Link>
-                </motion.div>
+                <Link
+                  href={'/contact'}
+                  className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
+                >
+                  <Button className="bg-mondo-600 dark:bg-slate-900 text-white border-mondo-700 dark:border-slate-800">
+                    Request For Quote
+                  </Button>
+                </Link>
               </motion.div>
             </motion.div>
           )}

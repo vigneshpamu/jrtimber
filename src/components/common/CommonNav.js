@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { PiBasketThin } from 'react-icons/pi'
 import { AnimatePresence, motion } from 'framer-motion'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { Button } from '../sections/moving-border'
+import { CiHeart, CiShoppingCart } from 'react-icons/ci'
 
 const CommonNav = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -50,7 +52,7 @@ const CommonNav = () => {
     closed: { opacity: 0, y: 50 },
   }
   return (
-    <div className=" bg-mondo-200 p-3 px-6  z-20">
+    <div className=" bg-mondo-200 p-3 md:px-6  z-20">
       <div className="max-w-[1300px] mx-auto flex flex-row justify-between">
         <Link href={'/'}>
           <Image
@@ -64,10 +66,16 @@ const CommonNav = () => {
 
         <div className="hidden md:flex flex-row gap-6 items-center">
           <Link
-            href={'/services'}
+            href={'/'}
             className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
           >
-            Services
+            Home
+          </Link>
+          <Link
+            href={'/about'}
+            className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
+          >
+            About Us
           </Link>
           <Link
             href={'/products'}
@@ -76,27 +84,28 @@ const CommonNav = () => {
             Products
           </Link>
           <Link
-            href={'/about'}
+            href={'/services'}
             className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
           >
-            About
+            Services
           </Link>
           <Link
             href={'/contact'}
             className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
           >
-            Contact
+            Contact Us
+          </Link>
+          <Link href={'/add-to-quote'}>
+            <CiShoppingCart className="text-mondo-400 text-3xl" />
           </Link>
           <Link href={'/wishlist'}>
-            <PiBasketThin className="text-mondo-400 text-3xl" />
+            <CiHeart className="text-mondo-400 text-3xl" />
           </Link>
         </div>
 
-        <div className="md:hidden">
-          <button onClick={toggleMenu}>
-            <AiOutlineMenu size={30} />
-          </button>
-        </div>
+        <button className="md:hidden" onClick={toggleMenu}>
+          <AiOutlineMenu size={26} />
+        </button>
 
         <AnimatePresence>
           {isOpen && (
@@ -107,7 +116,10 @@ const CommonNav = () => {
               variants={sidebarVariants}
               className="fixed top-0 left-0 w-full h-[100vh] bg-mondo-50 z-50 flex flex-col items-center justify-center"
             >
-              <button onClick={toggleMenu} className="absolute top-4 right-4">
+              <button
+                onClick={toggleMenu}
+                className="absolute top-4 right-4 rotate-hover"
+              >
                 <AiOutlineClose size={30} />
               </button>
               <div className="absolute top-[15%] left-1/2 transform -translate-x-1/2">
@@ -125,11 +137,20 @@ const CommonNav = () => {
               >
                 <motion.div variants={item} className="my-4">
                   <Link
-                    href={'/services'}
+                    href={'/'}
                     className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
                     onClick={toggleMenu}
                   >
-                    Services
+                    Home
+                  </Link>
+                </motion.div>
+                <motion.div variants={item} className="my-4">
+                  <Link
+                    href={'/about'}
+                    className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
+                    onClick={toggleMenu}
+                  >
+                    About Us
                   </Link>
                 </motion.div>
                 <motion.div variants={item} className="my-4">
@@ -143,20 +164,30 @@ const CommonNav = () => {
                 </motion.div>
                 <motion.div variants={item} className="my-4">
                   <Link
-                    href={'/about'}
+                    href={'/services'}
                     className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
                     onClick={toggleMenu}
                   >
-                    About
+                    Services
                   </Link>
                 </motion.div>
+
                 <motion.div variants={item} className="my-4">
                   <Link
                     href={'/contact'}
                     className="text-lg hover:text-mondo-300 transition-all cursor-pointer"
                     onClick={toggleMenu}
                   >
-                    Contact
+                    Contact Us
+                  </Link>
+                </motion.div>
+                <motion.div variants={item} className="my-4">
+                  <Link
+                    href={'/add-to-quote'}
+                    className="my-4"
+                    onClick={toggleMenu}
+                  >
+                    <CiShoppingCart className="text-mondo-400 text-3xl" />
                   </Link>
                 </motion.div>
                 <motion.div variants={item} className="my-4">
@@ -165,7 +196,7 @@ const CommonNav = () => {
                     className="my-4"
                     onClick={toggleMenu}
                   >
-                    <PiBasketThin className="text-mondo-400 text-3xl" />
+                    <CiHeart className="text-mondo-400 text-3xl" />
                   </Link>
                 </motion.div>
               </motion.div>

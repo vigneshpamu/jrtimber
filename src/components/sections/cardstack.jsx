@@ -48,6 +48,7 @@ const CardStack = ({ items }) => {
                 src={card.image}
                 width={50}
                 height={50}
+                alt={card.quote}
                 className="w-12 h-12 rounded-full"
               />
               <div>

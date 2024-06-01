@@ -2,8 +2,8 @@
 import { Navbar } from '@/components/sections/navbar'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { GiMaterialsScience } from 'react-icons/gi'
-import { MdMyLocation } from 'react-icons/md'
+import { GiMaterialsScience, GiRolledCloth } from 'react-icons/gi'
+import { MdMyLocation, MdOutlineRequestQuote } from 'react-icons/md'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TbWood } from 'react-icons/tb'
 import { BiCategory } from 'react-icons/bi'
@@ -15,154 +15,26 @@ import { useRouter } from 'next/navigation'
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css'
 import InnerImageZoom from 'react-inner-image-zoom'
 import CommonNav from '@/components/common/CommonNav'
+import { products } from '@/data/products'
+import { CiCircleRemove, CiHeart } from 'react-icons/ci'
+import { RxCross1 } from 'react-icons/rx'
+import { IoIosCut } from 'react-icons/io'
+import { IoLeafOutline } from 'react-icons/io5'
+import { PiResize } from 'react-icons/pi'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import { FaHeart } from 'react-icons/fa'
+import Link from 'next/link'
+
 const Page = ({ params }) => {
-  const data = [
-    {
-      id: 'Maple-25',
-      'Product Name': 'Maple Wood Veneer',
-      'Scientific Name': 'Acer saccharum (Sugar Maple) ',
-      Origin: 'North America, United States and Canada',
-      Type: 'Natural wood veneer',
-      Grades: ['A Grade', 'B Grade', 'C Grade'],
-      Sizes: {
-        Sheets: ["4' x 8'", "4' x 10'", "5' x 10'"],
-        Thickness: 'Typically ranges from 0.6 mm to 2 mm',
-      },
-      'Product Specification': 'Detailed attributes of the Maple Wood Veneer',
-      Collection: 'Natural',
-      'Country of Origin': 'America',
-      Category: 'Naturals',
-      'Sizes Available': ["3' x 7'", "4' x 8'", "4' x 10'"],
-      'Sub-category': 'Amberwood',
-      'Type Available': ['Ply', 'Flexi', 'Kraft', 'MDF'],
-      'Grain Pattern Available': ['Vertical Grain', 'Horizontal Grain'],
-      Species: 'Maple',
-      'Veneer Thickness': '0.5 mm',
-      'Color Tone': 'Light Brown',
-      Texture: 'Close Pore',
-      'Veneer Cut': 'Crown',
-      'Polished/Unpolished': 'Unpolished',
-      'Botanical Name': 'Acer',
-      'Density (kg/m3)': '600 - 750',
-      images: {
-        img: [
-          '/images/single/maple/main.jpg',
-          '/images/single/maple/1.jpg',
-          '/images/single/maple/2.jpg',
-          '/images/single/maple/3.jpg',
-        ],
-      },
-    },
-    {
-      id: 'Aspen-12',
-      'Product Name': 'Aspen Wood Veneer',
-      'Scientific Name': 'Populus tremuloides (Quaking Aspen)',
-      Origin: 'North America, United States and Canada',
-      Type: 'Natural wood veneer',
-      Grades: ['A Grade', 'B Grade', 'C Grade'],
-      Sizes: {
-        Sheets: ["4' x 8'", "4' x 10'", "5' x 10'"],
-        Thickness: 'Typically ranges from 0.6 mm to 2 mm',
-      },
-
-      'Product Specification': 'Detailed attributes of the Aspen Wood Veneer',
-      Collection: 'Natural',
-      'Country of Origin': 'America',
-      Category: 'Naturals',
-      'Sizes Available': ["3' x 7'", "4' x 8'", "4' x 10'"],
-      'Sub-category': 'Amberwood',
-      'Type Available': ['Ply', 'Flexi', 'Kraft', 'MDF'],
-      'Grain Pattern Available': ['Vertical Grain', 'Horizontal Grain'],
-      Species: 'Aspen',
-      'Veneer Thickness': '0.5 mm',
-      'Color Tone': 'Light Cream to Pale Yellow',
-      Texture: 'Close Pore',
-      'Veneer Cut': 'Flat Cut',
-      'Polished/Unpolished': 'Unpolished',
-      'Botanical Name': 'Populus',
-      'Density (kg/m3)': '350 - 450',
-      images: {
-        img: [
-          '/images/single/aspen/main.jpg',
-          '/images/single/aspen/1.jpg',
-          '/images/single/aspen/2.jpg',
-          '/images/single/aspen/3.jpg',
-        ],
-      },
-    },
-    {
-      id: 'Basswood-10',
-      'Product Name': 'Basswood Veneer',
-      'Scientific Name': 'Tilia americana (American Basswood)',
-      Origin: 'North America, United States and Canada',
-      Type: 'Natural wood veneer',
-      Grades: ['A Grade', 'B Grade', 'C Grade'],
-      Sizes: {
-        Sheets: ["4' x 8'", "4' x 10'", "5' x 10'"],
-        Thickness: 'Typically ranges from 0.6 mm to 2 mm',
-      },
-      'Product Specification': 'Detailed attributes of the Basswood Veneer',
-      Collection: 'Natural',
-      'Country of Origin': 'America',
-      Category: 'Naturals',
-      'Sizes Available': ["3' x 7'", "4' x 8'", "4' x 10'"],
-      'Sub-category': 'Amberwood',
-      'Type Available': ['Ply', 'Flexi', 'Kraft', 'MDF'],
-      'Grain Pattern Available': ['Vertical Grain', 'Horizontal Grain'],
-      Species: 'Basswood',
-      'Veneer Thickness': '0.5 mm',
-      'Color Tone': 'Light Cream',
-      Texture: 'Close Pore',
-      'Veneer Cut': 'Plain Sawn',
-      'Polished/Unpolished': 'Unpolished',
-      'Botanical Name': 'Tilia',
-      'Density (kg/m3)': '320 - 450',
-      images: {
-        img: [
-          '/images/single/basswood/main.jpg',
-          '/images/single/basswood/1.jpg',
-          '/images/single/basswood/2.jpg',
-        ],
-      },
-    },
-    {
-      id: 'Cherry-10',
-      'Product Name': 'Cherry Wood Veneer',
-      'Scientific Name': 'Prunus serotina (Black Cherry)',
-      Origin: 'North America, United States and Canada',
-      Type: 'Natural wood veneer',
-      Grades: ['A Grade', 'B Grade', 'C Grade'],
-      Sizes: {
-        Sheets: ["4' x 8'", "4' x 10'", "5' x 10'"],
-        Thickness: 'Typically ranges from 0.6 mm to 2 mm',
-      },
-      'Product Specification': 'Detailed attributes of the Cherry Wood Veneer',
-      Collection: 'Natural',
-      'Country of Origin': 'America',
-      Category: 'Naturals',
-      'Sizes Available': ["3' x 7'", "4' x 8'", "4' x 10'"],
-      'Sub-category': 'Amberwood',
-      'Type Available': ['Ply', 'Flexi', 'Kraft', 'MDF'],
-      'Grain Pattern Available': ['Vertical Grain', 'Horizontal Grain'],
-      Species: 'Cherry',
-      'Veneer Thickness': '0.5 mm',
-      'Color Tone': 'Reddish Brown',
-      Texture: 'Fine Pore',
-      'Veneer Cut': 'Crown',
-      'Polished/Unpolished': 'Unpolished',
-      'Botanical Name': 'Prunus',
-      'Density (kg/m3)': '580 - 700',
-      images: {
-        img: [
-          '/images/single/cherry/main.jpg',
-          '/images/single/cherry/1.jpg',
-          '/images/single/cherry/2.jpg',
-        ],
-      },
-    },
-  ]
-
   const [product, setProduct] = useState({})
+  const [inWishlist, setInWishlist] = useState(false)
   const router = useRouter()
   const [selectedImage, setSelectedImage] = useState('')
 
@@ -185,8 +57,52 @@ const Page = ({ params }) => {
     }
   }
 
+  const handleWishlist = () => {
+    const items = JSON.parse(localStorage.getItem('wishlist')) // Parse the JSON string
+    if (items === null) {
+      localStorage.setItem('wishlist', JSON.stringify([product]))
+      toast.success('Successfully Added to Quotation')
+    } else {
+      const single = items.filter((item) => item.id === product.id)
+      if (single.length === 0) {
+        localStorage.setItem('wishlist', JSON.stringify([...items, product]))
+        toast.success('Successfully Added to Wishlist')
+      } else {
+        toast.success('Successfully added to Wishlist')
+      }
+    }
+    setInWishlist(true)
+  }
+
+  const handleRemoveItem = () => {
+    const items = JSON.parse(localStorage.getItem('wishlist'))
+    const newItem = items.filter((item) => item.id !== params.id)
+    localStorage.setItem('wishlist', JSON.stringify([...newItem]))
+    toast.success('Item removed from wishlist')
+    setInWishlist(false)
+  }
+  const items = [
+    { label: 'Veneer Cut', icon: <IoIosCut />, value: product['Veneer Cut'] },
+    { label: 'Species', icon: <IoLeafOutline />, value: product['Species'] },
+    { label: 'Origin', icon: <MdMyLocation />, value: product['Origin'] },
+    { label: 'Type', icon: <TbWood />, value: product['Type'] },
+    { label: 'Category', icon: <BiCategory />, value: product['Category'] },
+    { label: 'Texture', icon: <GiRolledCloth />, value: product['Texture'] },
+    {
+      label: 'Thickness',
+      icon: <PiResize />,
+      value: product['Veneer Thickness'],
+    },
+  ]
   useEffect(() => {
-    const cur = data.filter((item) => item.id === params.id)
+    const cur = products.filter((item) => item.id === params.id)
+    const items = JSON.parse(localStorage.getItem('wishlist'))
+    if (items != null) {
+      const inWishList = items.filter((item) => item.id === params.id)
+      if (inWishList.length) {
+        setInWishlist(true)
+      }
+    }
     console.log(cur)
     setProduct(cur[0])
     setSelectedImage(cur[0].images.img[0])
@@ -200,9 +116,7 @@ const Page = ({ params }) => {
 
   return (
     <div className="">
-      {/* <Navbar className="top-2" /> */}
       <CommonNav />
-
       <div className="bg-mondo-50">
         <div className="max-w-[1300px] mx-auto py-10 md:py-32 px-5  flex flex-col  md:flex-row gap-5">
           <div className="w-full flex flex-row gap-2">
@@ -244,87 +158,117 @@ const Page = ({ params }) => {
                   alt="Selected Product Image"
                   className="h-full"
                 /> */}
-                {/* <SideBySideMagnifier
-                  alwaysInPlace={true}
-                  imageSrc={selectedImage}
-                  interactionSettings={{ tapDurationInMs: 300 }}
-                /> */}
+
                 <InnerImageZoom
                   src={selectedImage}
                   zoomSrc={selectedImage}
                   className="h-[300px] md:h-[500px]"
                   zoomType={'hover'}
                 />
-                {/* <img src={img} alt="" /> */}
               </motion.div>
             </AnimatePresence>
           </div>
-          <div className="w-full h-full flex flex-col gap-3 sm:gap-7">
+          <div className="w-full h-full flex flex-col gap-3 sm:gap-4">
             <p className="text-xl sm:text-2xl md:text-3xl font-bold text-mondo-800">
               {product['Product Name']}
             </p>
-            <div className="flex flex-col gap-2 sm:gap-4 bg-mondo-100 p-2 md:p-8 border border-mondo-300 rounded-md">
-              <div className="flex flex-row gap-1 sm:gap-3 items-center ">
-                <div className="flex flex-row items-center gap-1 sm:gap-3">
-                  <p className="text-sm sm:text-2xl text-mondo-700">
-                    <GiMaterialsScience />
-                  </p>
-                  <p className="text-[10px] sm:text-lg font-semibold text-mondo-700">
-                    Scientific Name
-                  </p>
+            <div className="flex flex-col gap-2 sm:gap-4 bg-mondo-100 p-2 md:p-6 border border-mondo-300 rounded-md">
+              <div className="flex flex-row gap-4">
+                <div className="flex flex-col text-mondo-400 font-semibold text-[11px] md:text-lg">
+                  {items.map((item, index) => (
+                    <p
+                      key={index}
+                      className="flex items-center gap-1 sm:gap-3 my-1"
+                    >
+                      <span className="text-sm sm:text-2xl text-mondo-700">
+                        {item.icon}
+                      </span>
+                      {item.label}
+                    </p>
+                  ))}
                 </div>
-                <p>-</p>
-                <p className="text-[12px] sm:text-lg">
-                  {product['Scientific Name']}
-                </p>
-              </div>
-              <div className="flex flex-row gap-1 sm:gap-3 items-center ">
-                <div className="flex flex-row items-center gap-1 sm:gap-3">
-                  <p className="text-sm sm:text-2xl text-mondo-700">
-                    <MdMyLocation />
-                  </p>
-                  <p className="text-[10px] sm:text-lg font-semibold text-mondo-700">
-                    Origin
-                  </p>
+                <div className="flex flex-col text-mondo-400 font-semibold text-[11px] md:text-lg">
+                  {items.map((_, index) => (
+                    <p key={index} className="my-1">
+                      :
+                    </p>
+                  ))}
                 </div>
-                <p>-</p>
-                <p className="text-[12px] sm:text-lg">{product['Origin']}</p>
-              </div>
-              <div className="flex flex-row gap-1 sm:gap-3 items-center ">
-                <div className="flex flex-row items-center gap-1 sm:gap-3">
-                  <p className="text-sm sm:text-2xl text-mondo-700">
-                    <TbWood />
-                  </p>
-                  <p className="text-[10px] sm:text-lg font-semibold text-mondo-700">
-                    Type
-                  </p>
+                <div className="flex flex-col text-mondo-600 font-semibold text-[11px] md:text-lg">
+                  {items.map((item, index) => (
+                    <p key={index} className="my-1">
+                      {item.value}
+                    </p>
+                  ))}
                 </div>
-                <p>-</p>
-                <p className="text-[12px] sm:text-lg">{product['Type']}</p>
-              </div>
-              <div className="flex flex-row gap-1 sm:gap-3 items-center ">
-                <div className="flex flex-row items-center gap-1 sm:gap-3">
-                  <p className="text-sm sm:text-2xl text-mondo-700">
-                    <BiCategory />
-                  </p>
-                  <p className="text-[10px] sm:text-lg font-semibold text-mondo-700">
-                    Category
-                  </p>
-                </div>
-                <p>-</p>
-                <p className="text-[12px] sm:text-lg">{product['Category']}</p>
               </div>
             </div>
+
             <div className="flex flex-row gap-2 ">
               <button
                 onClick={handleQuote}
-                className="bg-mondo-600 max-w-[300px] p-2 sm:p-4 text-sm min-w-[150px]  text-white rounded-lg"
+                className="bg-mondo-600 max-w-[300px] flex flex-row items-center gap-2 p-2 sm:p-4 text-sm min-w-[150px] text-white rounded-lg"
               >
+                <MdOutlineRequestQuote size={22} />
                 Add To Quote
               </button>
-              <button className="bg-mondo-600 max-w-[300px] p-2 sm:p-4 text-sm min-w-[150px] text-white rounded-lg">
-                Add To Wishlist
-              </button>
+              <Dialog>
+                {!inWishlist && (
+                  <DialogTrigger onClick={handleWishlist}>
+                    <div className="bg-mondo-600 max-w-[300px] flex flex-row items-center gap-2 p-2 sm:p-4 text-sm min-w-[150px] text-white rounded-lg">
+                      <CiHeart size={22} />
+                      Add To Wishlist
+                    </div>
+                  </DialogTrigger>
+                )}
+                {inWishlist && (
+                  <DialogTrigger onClick={handleRemoveItem}>
+                    <div className="bg-mo ndo-600 max-w-[300px] flex flex-row items-center gap-2 p-2 sm:p-4 text-sm min-w-[150px] text-mondo-700 border border-mondo-900 rounded-lg">
+                      <RxCross1 size={20} />
+                      Remove From Wishlist
+                    </div>
+                  </DialogTrigger>
+                )}
+                {inWishlist && (
+                  <DialogContent className="bg-mondo-100 max-w-[360px] flex flex-col items-center justify-center p-4">
+                    <FaHeart size={36} className="text-mondo-500" />
+                    <p className="text-mondo-700">
+                      '{product['Product Name']}' added to Wishlist
+                    </p>
+                    <Link
+                      href={'/wishlist'}
+                      className="p-2 w-full flex flex-row items-center justify-center gap-2 bg-mondo-600"
+                    >
+                      <CiHeart size={25} className="text-mondo-100" />
+                      <p className="text-mondo-100">View Wishlist</p>
+                    </Link>
+                  </DialogContent>
+                )}
+                {!inWishlist && (
+                  <DialogContent className="bg-mondo-100 max-w-[360px] flex flex-col items-center justify-center p-4">
+                    <CiCircleRemove size={40} className="text-mondo-500" />
+                    <p className="text-mondo-700">
+                      Product removed from Wishlist
+                    </p>
+                    <Link
+                      href={'/wishlist'}
+                      className="p-2 w-full flex flex-row items-center justify-center gap-2 bg-mondo-600"
+                    >
+                      <CiHeart size={25} className="text-mondo-100" />
+                      <p className="text-mondo-100">View Wishlist</p>
+                    </Link>
+                  </DialogContent>
+                )}
+              </Dialog>
+              {/* {inWishlist && (
+                <button
+                  onClick={() => handleRemoveItem()}
+                  className="bg-mo ndo-600 max-w-[300px] flex flex-row items-center gap-2 p-2 sm:p-4 text-sm min-w-[150px] text-mondo-700 border border-mondo-900 rounded-lg"
+                >
+                  <RxCross1 size={20} />
+                  Remove From Wishlist
+                </button>
+              )} */}
             </div>
           </div>
         </div>

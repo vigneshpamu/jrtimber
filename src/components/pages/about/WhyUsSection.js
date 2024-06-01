@@ -1,6 +1,8 @@
+import { fadeIn } from '@/utils/animate'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const WhyUsSection = () => {
   return (
@@ -21,16 +23,31 @@ const WhyUsSection = () => {
           />
 
           <div className="w-full md:w-[50%] bg-mondo-950 px-5 pb-10 md:py-0 flex flex-col gap-3">
-            <p className="text-2xl md:text-4xl text-mondo-100 font-semibold">
+            <motion.p
+              variants={fadeIn('left', 0.3, 0.6)}
+              initial="hidden"
+              whileInView={'show'}
+              className="text-2xl md:text-4xl text-mondo-100 font-semibold"
+            >
               Responsible Forestry
-            </p>
-            <p className="text-2xl md:text-4xl text-mondo-100 font-semibold">
+            </motion.p>
+            <motion.p
+              variants={fadeIn('left', 0.3, 0.6)}
+              initial="hidden"
+              whileInView={'show'}
+              className="text-2xl md:text-4xl text-mondo-100 font-semibold"
+            >
               Quality Timber
-            </p>
+            </motion.p>
             <div className="h-[3px] w-[50px] bg-mondo-500"></div>
-            <p className="text-mondo-100 max-w-[80%]">
+            <motion.p
+              variants={fadeIn('left', 0.5, 0.6)}
+              initial="hidden"
+              whileInView={'show'}
+              className="text-mondo-100 max-w-[80%]"
+            >
               We are the biggest stockist in UAE
-            </p>
+            </motion.p>
             <Link
               href={'/products'}
               className="text-mondo-700 w-40 py-2 text-center bg-mondo-50 font-semibold"
