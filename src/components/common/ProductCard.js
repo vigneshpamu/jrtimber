@@ -108,7 +108,7 @@ const ProductCard = ({ item }) => {
               <DialogContent className="bg-mondo-100 max-w-[360px] flex flex-col items-center justify-center p-4">
                 <FaHeart size={36} className="text-mondo-500" />
                 <p className="text-mondo-700">
-                  '{item['Product Name']}' added to Wishlist
+                  {item['Product Name']} added to Wishlist
                 </p>
                 <Link
                   href={'/wishlist'}
